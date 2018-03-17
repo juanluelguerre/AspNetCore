@@ -1,6 +1,5 @@
-﻿using ElGuerre.AspNetCore.Cross.Exception.Filter;
-using ElGuerre.AspNetCore.Cross.Exception.Filter.AspNetCoreNlog;
-using ElGuerre.AspNetCore.Cross.Exception.Middleware;
+﻿using ElGuerre.AspNetCore.Cross.Exception.Middleware;
+using ElGuerre.AspNetCore.Cross.Filter;
 using ElGuerre.AspNetCore.SampleApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,14 +31,11 @@ namespace ElGuerre.AspNetCore.SampleApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var useFilter = Configuration.GetValue<bool>("ExceptionFilter");
             services.AddMvc(op =>
             {
-                if (useFilter)
-                {
-                    op.Filters.Add<ExceptionFilter>();
-                    op.Filters.Add<LogFilter>();
-                }
+                // op.Filters.Add<ExceptionFilter>();
+                // op.Filters.Add<LogFilter>();
+                op.Filters.Add<JsonResponseFilter>();
             });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -56,9 +52,9 @@ namespace ElGuerre.AspNetCore.SampleApi
                     new Info
                     {
                         Version = "v1",
-                        Title = "Test For Exeption and Login",
-                        Description = "API to expose Test For Exeption and Login",
-                        TermsOfService = "Copyright (c) WLMS-IDB. All rights reserved."
+                        Title = "API Sample",
+                        Description = "API Sample",
+                        TermsOfService = "Copyright (c) ElGuerre.com. All rights reserved."
                     }
                 );
 
@@ -80,9 +76,9 @@ namespace ElGuerre.AspNetCore.SampleApi
                 app.UseExceptionHandler();
             }
 
-            var useMiddleware = Configuration.GetValue<bool>("ExceptionMiddleware");
-            if (useMiddleware) app.UseExceptionMiddleware();
-            
+            // app.UseResponseWrapperMiddleware();
+            app.UseExceptionMiddleware();
+
             //logFactory.AddConsole(); // Configured using NLog, (nlog.config file).
             logFactory.AddNLog();
             env.ConfigureNLog("nlog.config");
@@ -95,7 +91,7 @@ namespace ElGuerre.AspNetCore.SampleApi
             app.UseSwagger()
                .UseSwaggerUI(c =>
                {
-                   c.SwaggerEndpoint($"/swagger/v1/swagger.json", "Demo Api V1");
+                   c.SwaggerEndpoint($"/swagger/v1/swagger.json", "API Sample V1");
                });
 
             #endregion

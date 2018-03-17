@@ -73,10 +73,10 @@ namespace ElGuerre.AspNetCore.Cross.Exception.Middleware
 
             var result = new ApiResponse() {
                 IsValid = false,
-                Message = env.IsDevelopment() ? $"{message}{exception.StackTrace}" : message };
-            var content = JsonConvert.SerializeObject(result);
-
-            return context.Response.WriteAsync(content);
+                Message = env.IsDevelopment() ? $"{message}{exception.StackTrace}" : message
+            }.ToJson();
+            
+            return context.Response.WriteAsync(result);
         }
     }
 
