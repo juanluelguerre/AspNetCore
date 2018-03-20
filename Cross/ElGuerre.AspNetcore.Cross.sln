@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElGuerre.AspNetCore.Cross",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElGuerre.AspNetCore.SampleApi", "ElGuerre.AspNetCore.SampleApi\ElGuerre.AspNetCore.SampleApi.csproj", "{FE8D27D2-ED6C-4B48-AF4F-75C98606991B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElGuerre.AspNetCore.SampleApi.IntegrationTests", "ElGuerre.AspNetCore.SampleApi.IntegrationTests\ElGuerre.AspNetCore.SampleApi.IntegrationTests.csproj", "{B8FBAE61-058E-4528-A52F-9DA5FE2B76EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElGuerre.AspNetCore.SampleApi.UnitTests", "ElGuerre.AspNetCore.SampleApi.UnitTests\ElGuerre.AspNetCore.SampleApi.UnitTests.csproj", "{28853D37-C46C-45B1-8083-5DED10100170}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{FE8D27D2-ED6C-4B48-AF4F-75C98606991B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE8D27D2-ED6C-4B48-AF4F-75C98606991B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE8D27D2-ED6C-4B48-AF4F-75C98606991B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8FBAE61-058E-4528-A52F-9DA5FE2B76EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8FBAE61-058E-4528-A52F-9DA5FE2B76EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8FBAE61-058E-4528-A52F-9DA5FE2B76EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8FBAE61-058E-4528-A52F-9DA5FE2B76EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28853D37-C46C-45B1-8083-5DED10100170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28853D37-C46C-45B1-8083-5DED10100170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28853D37-C46C-45B1-8083-5DED10100170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28853D37-C46C-45B1-8083-5DED10100170}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

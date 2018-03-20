@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace ElGuerre.AspNetCore.SampleApi.Services
 {
-    public interface IValuesServices
+    public interface IValuesService
     {
         Task<IEnumerable<string>> GetAll();
 

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace ElGuerre.AspNetCore.SampleApi.Services
 {
-    public class ValuesServices : IValuesServices
+    public class ValuesService : IValuesService
     {
-        public ValuesServices() { }
+        public ValuesService() { }
 
         public async Task<IEnumerable<string>> GetAll()
         {

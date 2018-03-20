@@ -8,9 +8,9 @@ namespace IElGuerre.AspNetCore.SampleApi.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        private readonly IValuesServices _valuesServices;
+        private readonly IValuesService _valuesServices;
 
-        public ValuesController(IValuesServices valuesServices) => _valuesServices = valuesServices;
+        public ValuesController(IValuesService valuesServices) => _valuesServices = valuesServices;
 
         [HttpGet]
         public async Task<IActionResult> GetAll()

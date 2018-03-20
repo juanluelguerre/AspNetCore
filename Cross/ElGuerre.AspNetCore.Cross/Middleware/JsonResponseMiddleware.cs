@@ -1,5 +1,6 @@
 ﻿////
 //// https://stackoverflow.com/questions/47181356/c-sharp-dotnet-core-middleware-wrap-response
+//// https://www.billbogaiv.com/posts/using-aspnet-cores-middleware-to-modify-response-body
 ////
 //// IMPORTANT: Not work using Swagger !!!!
 ////
@@ -16,14 +17,14 @@
 
 //namespace ElGuerre.AspNetCore.Cross.Exception.Middleware
 //{
-//    public class ResponseWrapperMiddleware
+//    public class JsonResponseMiddleware
 //    {
 //        private readonly RequestDelegate _next;
 //        private readonly IHostingEnvironment _env;
 //        private readonly ILogger<ExceptionMiddleware> _logger;
 
 
-//        public ResponseWrapperMiddleware(RequestDelegate next, IHostingEnvironment env, ILoggerFactory loggerFactory)
+//        public JsonResponseMiddleware(RequestDelegate next, IHostingEnvironment env, ILoggerFactory loggerFactory)
 //        {
 //            _next = next ?? throw new ArgumentNullException(nameof(next));
 //            _env = env ?? throw new ArgumentException(nameof(env));

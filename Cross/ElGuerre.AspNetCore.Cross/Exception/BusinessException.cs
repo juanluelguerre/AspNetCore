@@ -1,6 +1,6 @@
 ﻿namespace ElGuerre.AspNetCore.Cross.Exception.Exception
 {
-    public class BusinessException : System.Exception
+    public class BusinessException : System.Exception, IBaseException
     {
         public string AppName { get; set; }
 
