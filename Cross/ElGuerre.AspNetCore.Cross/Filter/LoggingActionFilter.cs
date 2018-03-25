@@ -1,19 +1,14 @@
-﻿using System;
-using ElGuerre.AspNetCore.Cross.Logging;
+﻿using ElGuerre.AspNetCore.Cross.Logging;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.Logging;
-using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
-using System.Net.Sockets;
-using System.Reflection;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.IO;
+using System;
 
 namespace ElGuerre.AspNetCore.Cross.Filter
 {
@@ -35,27 +30,10 @@ namespace ElGuerre.AspNetCore.Cross.Filter
                 Id = Guid.NewGuid()
             };
 
-
-            DateTime dateTime = DateTime.UtcNow;
-
-            logInfo.StartDateTime = dateTime;
-
+            logInfo.StartDateTime = DateTime.UtcNow;
             logInfo.ServerName = Dns.GetHostName();
-
-            //IPHostEntry ipHostInfo = Dns.GetHostEntry(logInfo.ServerName);
-            //IPAddress[] ipv4Addresses = Array.FindAll(Dns.GetHostEntry(string.Empty).AddressList, a => a.AddressFamily == AddressFamily.InterNetwork);
-            //logInfo.ServerIp = ipv4Addresses[1].ToString();
-
             logInfo.ServerIp = context.HttpContext.Connection.LocalIpAddress.ToString();
             // logInfo.RemoteIp = context.HttpContext.Connection.RemoteIpAddress.ToString();
-
-            // string httpClientIp = context.HttpContext.Request.Headers["HTTP_CLIENT_IP"];
-            // var connectionFeature = context.HttpContext.Features.Get<IHttpConnectionFeature>();
-            // string ip;
-            // if (connectionFeature != null)
-            // {
-            //     ip = connectionFeature.RemoteIpAddress.ToString();
-            // }
 
             var request = context.HttpContext.Request;
             logInfo.Uri = request.Path;
@@ -78,19 +56,6 @@ namespace ElGuerre.AspNetCore.Cross.Filter
             ControllerActionDescriptor controllerActionDescriptor = (ControllerActionDescriptor)context.ActionDescriptor;
             logInfo.OperationCode = controllerActionDescriptor.ActionName;
             logInfo.OperationType = context.HttpContext.Request.Method;
-
- 
-            // ParameterInfo[] parameterInfo = controllerActionDescriptor.MethodInfo.GetParameters();
-            //if (parameterInfo.Count() > 1)
-            //{
-            //logInfo.EventType = string.Join(",", parameterInfo.Select(p => p.GetType().ToGenericTypeString()));
-            //logInfo.EventCod = string.Join(",", parameterInfo.Select(p => p.Name));
-            //}
-            //else if (parameterInfo.Count() == 1)
-            //{
-            //    auditInfo.EventType = parameterInfo[0].GetType().ToGenericTypeString();
-            //    auditInfo.EventCod = parameterInfo[0].Name;
-            //}
 
             _logger.LogAudit(logInfo);
 
