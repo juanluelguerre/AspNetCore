@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElGuerre.AspNetCore.Cross", "ElGuerre.AspNetCore.Cross\ElGuerre.AspNetCore.Cross.csproj", "{9C0FA295-BA37-43D1-8E85-4E2AC37786FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElGuerre.AspNetCore.SampleApi", "ElGuerre.AspNetCore.SampleApi\ElGuerre.AspNetCore.SampleApi.csproj", "{FE8D27D2-ED6C-4B48-AF4F-75C98606991B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C0FA295-BA37-43D1-8E85-4E2AC37786FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C0FA295-BA37-43D1-8E85-4E2AC37786FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C0FA295-BA37-43D1-8E85-4E2AC37786FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C0FA295-BA37-43D1-8E85-4E2AC37786FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE8D27D2-ED6C-4B48-AF4F-75C98606991B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE8D27D2-ED6C-4B48-AF4F-75C98606991B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE8D27D2-ED6C-4B48-AF4F-75C98606991B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE8D27D2-ED6C-4B48-AF4F-75C98606991B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06A4B4E6-B0D2-4137-A5F6-EA46B09C277B}
+	EndGlobalSection
+EndGlobal
