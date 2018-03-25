@@ -1,5 +1,6 @@
 ﻿using ElGuerre.AspNetCore.Cross.Exception.Middleware;
 using ElGuerre.AspNetCore.Cross.Filter;
+using ElGuerre.AspNetCore.Cross.Logging;
 using ElGuerre.AspNetCore.SampleApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,7 +9,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
-using NLog.Web;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace ElGuerre.AspNetCore.SampleApi
@@ -36,11 +36,11 @@ namespace ElGuerre.AspNetCore.SampleApi
                 // op.Filters.Add<ExceptionFilter>();
                 // op.Filters.Add<LogFilter>();
                 op.Filters.Add<JsonResponseFilter>();
+                op.Filters.Add<LoggingActionFilter>();
             });
 
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-            // services.AddScoped<LogFilter>();
+            // services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<ILoggerManager, LoggerManager>();
             services.AddScoped<IValuesServices, ValuesServices>();
 
             #region Swagger
@@ -76,13 +76,11 @@ namespace ElGuerre.AspNetCore.SampleApi
                 app.UseExceptionHandler();
             }
 
-            // app.UseResponseWrapperMiddleware();
             app.UseExceptionMiddleware();
 
-            //logFactory.AddConsole(); // Configured using NLog, (nlog.config file).
+            // logFactory.AddConsole(); // Configured using NLog, (nlog.config file).
             logFactory.AddNLog();
-            env.ConfigureNLog("nlog.config");
-            //logFactory.AddApplicationInsights();
+            // logFactory.AddApplicationInsights();
 
             app.UseMvc();
 

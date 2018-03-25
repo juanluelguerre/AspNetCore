@@ -1,7 +1,6 @@
 ﻿//
-// We have tu use a Filter instead of Middleware, because Swagger does
+// We have tu use a Filter instead of Middleware, because Swagger does not works properly
 //
-using ElGuerre.AspNetCore.Cross.Exception.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;

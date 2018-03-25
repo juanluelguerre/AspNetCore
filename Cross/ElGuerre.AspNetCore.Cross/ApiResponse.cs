@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ElGuerre.AspNetCore.Cross.Exception.Infrastructure
+namespace ElGuerre.AspNetCore.Cross
 {
     public class ApiResponse<T>
     {

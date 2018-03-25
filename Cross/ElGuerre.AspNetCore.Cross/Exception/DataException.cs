@@ -1,9 +1,7 @@
 ﻿namespace ElGuerre.AspNetCore.Cross.Exception.Exception
 {
-    public class DataException : System.Exception
+    public class DataException : BaseException
     {
-        public string AppName { get; set; }
-
         public DataException(string message, System.Exception innerException) : base(message, innerException)
         {
         }
