@@ -1,5 +1,10 @@
 ﻿using ElGuerre.AspNetCore.Cross.Exception.Middleware;
 using ElGuerre.AspNetCore.Cross.Filter;
+<<<<<<< HEAD
+=======
+using ElGuerre.AspNetCore.Cross.Logging;
+using ElGuerre.AspNetCore.SampleApi.Services;
+>>>>>>> 313d6603a85f9d8f0096d803c678a6dc1bd3f05f
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -8,7 +13,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using NLog.Extensions.Logging;
-using NLog.Web;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace ElGuerre.AspNetCore.SampleApi
@@ -33,6 +37,7 @@ namespace ElGuerre.AspNetCore.SampleApi
         {
             services.AddMvc(op =>
             {
+<<<<<<< HEAD
                 op.Filters.Add<JsonResponseFilter>();                
             })
             .AddControllersAsServices()
@@ -43,6 +48,17 @@ namespace ElGuerre.AspNetCore.SampleApi
             });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+=======
+                // op.Filters.Add<ExceptionFilter>();
+                // op.Filters.Add<LogFilter>();
+                op.Filters.Add<JsonResponseFilter>();
+                op.Filters.Add<LoggingActionFilter>();
+            });
+
+            // services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<ILoggerManager, LoggerManager>();
+            services.AddScoped<IValuesServices, ValuesServices>();
+>>>>>>> 313d6603a85f9d8f0096d803c678a6dc1bd3f05f
 
             #region Swagger
 
@@ -79,11 +95,16 @@ namespace ElGuerre.AspNetCore.SampleApi
 
             app.UseExceptionMiddleware();
 
-            //logFactory.AddConsole(); // Configured using NLog, (nlog.config file).
+            // logFactory.AddConsole(); // Configured using NLog, (nlog.config file).
             logFactory.AddNLog();
+<<<<<<< HEAD
             env.ConfigureNLog("nlog.config");
             //logFactory.AddApplicationInsights();          
            
+=======
+            // logFactory.AddApplicationInsights();
+
+>>>>>>> 313d6603a85f9d8f0096d803c678a6dc1bd3f05f
             app.UseMvc();
 
 

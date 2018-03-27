@@ -10,4 +10,7 @@
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.5.0-rc3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Logging\" />
+  </ItemGroup>
 </Project>
