@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Program
+    public static class Program
     {
         ///
         // OPCION 1
@@ -24,7 +24,7 @@ namespace ConsoleApp1
         //    var msg2 = client.GetStringAsync("http://localhost:2901/api/values/44").Result;
         //    Values val = Newtonsoft.Json.JsonConvert.DeserializeObject<Values>(msg2);
         //    Console.WriteLine($"[{val.Values1}, {val.Values2}]");
-
+         
 
         //    Console.WriteLine("Pulse INTRO para finalizar...");
         //    Console.ReadLine();

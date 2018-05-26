@@ -1,14 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using WebApplication1.Repository.Entity;
-
-namespace WebApplication1.Controllers
+﻿namespace WebApplication1.Controllers
 {
+    using System.Collections.Generic;
+    using Microsoft.AspNetCore.Mvc;
+    using WebApplication1.Repository.Entity;
+
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET api/values
+        // GET api/values 
         [HttpGet]
         //public ActionResult<IEnumerable<string>> Get()
         public ActionResult<IEnumerable<Values>> Get()
